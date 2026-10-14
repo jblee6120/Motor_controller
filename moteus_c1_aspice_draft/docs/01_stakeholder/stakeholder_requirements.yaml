@@ -1,0 +1,145 @@
+# MCTRL-C1-RA — Draft. 변경 시 trace/links.csv 와 일관성 유지.
+document:
+  id: SYS1-STK-001
+  process: SYS.1
+  project: MCTRL-C1-RA
+  title: Stakeholder Requirements — Draft
+  version: '0.1'
+  date: '2026-10-12'
+  status: Draft
+  approval: TBD
+elicitation:
+  input: 사용자가 제공한 프로젝트 1~11단계 컨셉 및 c1 레퍼런스 선택
+  stakeholder_owner: TBD
+  review_date: TBD
+  agreement: NotAgreed
+  notes: 개별 요구사항은 프로젝트 컨셉에서 도출한 제안이며 이해관계자와의 합의 완료를 의미하지 않는다.
+requirements:
+- id: STK-REQ-001
+  title: 자체 HW/SW 소유
+  need: 개발자는 moteus c1을 참조하되 자체 설계한 모터제어 보드와 관리 가능한 펌웨어를 확보하고자 한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-002
+  title: 3상 모터 구동
+  need: 사용자는 하나의 3상 PMSM/BLDC 모터를 구동하고자 한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-003
+  title: 센서 기반 FOC
+  need: 사용자는 모터 위치/각도 피드백을 사용한 FOC를 구현하고자 한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-004
+  title: 전류 제어
+  need: 사용자는 모터 전류 명령에 따른 폐루프 제어를 원한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-005
+  title: 속도 제어
+  need: 사용자는 목표 회전속도를 추종하는 운전 모드를 원한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-006
+  title: 위치 제어
+  need: 사용자는 목표 회전자 위치를 추종하는 운전 모드를 원한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-007
+  title: 외부 명령·통신
+  need: 상위 제어 장치는 CAN FD를 통해 명령과 응답을 교환할 수 있어야 한다.
+  stakeholder: STK-HOST
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-008
+  title: 상태 관측 및 진단
+  need: 시험자는 전류·속도·위치·전압·온도 및 주요 고장 상태를 확인하고자 한다.
+  stakeholder: STK-OPR
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-009
+  title: 고장 시 보호
+  need: 시험자는 전기적 고장 또는 측정 이상 발생 시 위험한 구동이 제한되기를 원한다.
+  stakeholder: STK-OPR
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-010
+  title: 통신 상실 대응
+  need: 상위 제어기 통신이 끊기거나 유효하지 않은 명령이 오더라도 의도하지 않은 지속 구동이 없어야 한다.
+  stakeholder: STK-HOST
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-011
+  title: 시동·설정·캘리브레이션
+  need: 사용자는 초기화, 센서/모터 정렬, 설정값 저장 및 재적용을 일관되게 수행하고자 한다.
+  stakeholder: STK-OPR
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-012
+  title: 펌웨어 업데이트·디버깅
+  need: 개발자는 MCU 펌웨어를 다운로드·디버깅할 수 있어야 한다.
+  stakeholder: STK-OPR
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-013
+  title: PCB 제작·연결
+  need: 개발자는 제작·조립 가능한 PCB와 전원/모터/통신/센서 연결을 확보하고자 한다.
+  stakeholder: STK-MFG
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-014
+  title: 제어 성능
+  need: 개발자는 정의된 운전 범위에서 전류·속도·위치 제어의 정량 성능을 검증하고자 한다.
+  stakeholder: STK-OWNER
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-015
+  title: 운용 한계·열 관리
+  need: 개발자는 입력전압, 전류, 온도, 회생 조건의 운용 한계가 규정·관리되기를 원한다.
+  stakeholder: STK-OPR
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
+- id: STK-REQ-016
+  title: 안전한 시험·정지
+  need: 시험자는 전원 투입·비활성·고장 복귀 시 예기치 않은 구동을 피하고, 지정된 정지 동작을 확인하고자 한다.
+  stakeholder: STK-OPR
+  priority: Must
+  status: Proposed
+  rationale: 사용자 제공 개발 컨셉에 기반한 제안
+  acceptance_of_stakeholder: TBD
