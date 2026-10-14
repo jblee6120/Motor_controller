@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motor ALM · MCTRL-C1-RA</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">M</span><div><strong>Motor ALM</strong><small>MCTRL-C1-RA · Rev.A</small></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav id="main-nav">
+        <button data-view="dashboard" class="active"><span>▦</span> 대시보드</button>
+        <button data-view="items"><span>▤</span> 산출물</button>
+        <button data-view="trace"><span>⌁</span> 추적성</button>
+        <button data-view="quality"><span>◇</span> 점검</button>
+      </nav>
+      <div class="nav-label stage-label">PROCESS MAP</div>
+      <nav id="stage-nav"></nav>
+      <div class="sidebar-foot">로컬 프로젝트 · 자동 저장<br><span>데이터: alm/data/alm.sqlite3</span></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><span class="eyebrow">MOTOR CONTROLLER / ENGINEERING</span><h1 id="page-title">대시보드</h1></div><div class="top-actions"><a class="ghost" href="/guide.html" target="_blank" rel="noopener">사용설명서</a><a class="ghost export" href="/api/export.json">JSON 내보내기</a><button id="new-button" class="primary">＋ 새 산출물</button></div></header>
+      <div id="notice" role="status"></div>
+      <section id="content"></section>
+    </main>
+  </div>
+  <div id="modal-root"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

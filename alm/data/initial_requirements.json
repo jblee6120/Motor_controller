@@ -1,0 +1,1379 @@
+{
+  "stakeholder": {
+    "document": {
+      "id": "SYS1-STK-001",
+      "process": "SYS.1",
+      "project": "MCTRL-C1-RA",
+      "title": "Stakeholder Requirements — Draft",
+      "version": "0.1",
+      "date": "2026-10-12",
+      "status": "Draft",
+      "approval": "TBD"
+    },
+    "elicitation": {
+      "input": "사용자가 제공한 프로젝트 1~11단계 컨셉 및 c1 레퍼런스 선택",
+      "stakeholder_owner": "TBD",
+      "review_date": "TBD",
+      "agreement": "NotAgreed",
+      "notes": "개별 요구사항은 프로젝트 컨셉에서 도출한 제안이며 이해관계자와의 합의 완료를 의미하지 않는다."
+    },
+    "requirements": [
+      {
+        "id": "STK-REQ-001",
+        "title": "자체 HW/SW 소유",
+        "need": "개발자는 moteus c1을 참조하되 자체 설계한 모터제어 보드와 관리 가능한 펌웨어를 확보하고자 한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-002",
+        "title": "3상 모터 구동",
+        "need": "사용자는 하나의 3상 PMSM/BLDC 모터를 구동하고자 한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-003",
+        "title": "센서 기반 FOC",
+        "need": "사용자는 모터 위치/각도 피드백을 사용한 FOC를 구현하고자 한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-004",
+        "title": "전류 제어",
+        "need": "사용자는 모터 전류 명령에 따른 폐루프 제어를 원한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-005",
+        "title": "속도 제어",
+        "need": "사용자는 목표 회전속도를 추종하는 운전 모드를 원한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-006",
+        "title": "위치 제어",
+        "need": "사용자는 목표 회전자 위치를 추종하는 운전 모드를 원한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-007",
+        "title": "외부 명령·통신",
+        "need": "상위 제어 장치는 CAN FD를 통해 명령과 응답을 교환할 수 있어야 한다.",
+        "stakeholder": "STK-HOST",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-008",
+        "title": "상태 관측 및 진단",
+        "need": "시험자는 전류·속도·위치·전압·온도 및 주요 고장 상태를 확인하고자 한다.",
+        "stakeholder": "STK-OPR",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-009",
+        "title": "고장 시 보호",
+        "need": "시험자는 전기적 고장 또는 측정 이상 발생 시 위험한 구동이 제한되기를 원한다.",
+        "stakeholder": "STK-OPR",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-010",
+        "title": "통신 상실 대응",
+        "need": "상위 제어기 통신이 끊기거나 유효하지 않은 명령이 오더라도 의도하지 않은 지속 구동이 없어야 한다.",
+        "stakeholder": "STK-HOST",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-011",
+        "title": "시동·설정·캘리브레이션",
+        "need": "사용자는 초기화, 센서/모터 정렬, 설정값 저장 및 재적용을 일관되게 수행하고자 한다.",
+        "stakeholder": "STK-OPR",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-012",
+        "title": "펌웨어 업데이트·디버깅",
+        "need": "개발자는 MCU 펌웨어를 다운로드·디버깅할 수 있어야 한다.",
+        "stakeholder": "STK-OPR",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-013",
+        "title": "PCB 제작·연결",
+        "need": "개발자는 제작·조립 가능한 PCB와 전원/모터/통신/센서 연결을 확보하고자 한다.",
+        "stakeholder": "STK-MFG",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-014",
+        "title": "제어 성능",
+        "need": "개발자는 정의된 운전 범위에서 전류·속도·위치 제어의 정량 성능을 검증하고자 한다.",
+        "stakeholder": "STK-OWNER",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-015",
+        "title": "운용 한계·열 관리",
+        "need": "개발자는 입력전압, 전류, 온도, 회생 조건의 운용 한계가 규정·관리되기를 원한다.",
+        "stakeholder": "STK-OPR",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      },
+      {
+        "id": "STK-REQ-016",
+        "title": "안전한 시험·정지",
+        "need": "시험자는 전원 투입·비활성·고장 복귀 시 예기치 않은 구동을 피하고, 지정된 정지 동작을 확인하고자 한다.",
+        "stakeholder": "STK-OPR",
+        "priority": "Must",
+        "status": "Proposed",
+        "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+        "acceptance_of_stakeholder": "TBD"
+      }
+    ]
+  },
+  "system": {
+    "document": {
+      "id": "SYS2-SRS-001",
+      "process": "SYS.2",
+      "project": "MCTRL-C1-RA",
+      "title": "System Requirements Specification — Rev.A Draft",
+      "version": "0.1",
+      "date": "2026-10-12",
+      "status": "Draft",
+      "approval": "TBD",
+      "system_of_interest": "단일 3상 모터용 자체 개발 모터제어 보드 및 내장 SW"
+    },
+    "interpretation": {
+      "terms": {
+        "TBD": "아직 결정되지 않은 검증 수치/설계 조건. 미충족이 아니라 승인 불가 항목",
+        "Draft": "분석 중, 시스템 기준선에 반영되지 않음",
+        "Must": "현재 제안한 Rev.A 필수 요구. 이해관계자 합의·feasibility에 따라 조정 가능"
+      },
+      "reference_policy": "moteus c1의 전압/전류/크기는 참고 정보일 뿐 자체 Rev.A의 승인된 한계가 아니다.",
+      "approval_rule": "open_points 또는 acceptance_criteria에 TBD가 남아 있거나 feasibility=NotAssessed이면 Approved 불가.",
+      "configuration": "참조 HW revision/commit TBD; 대상 모터 모델 및 시험 조건 TBD",
+      "verification_methods": [
+        "Test",
+        "Analysis",
+        "Inspection",
+        "Demonstration"
+      ],
+      "traceability_source": "trace/links.csv",
+      "constraint_status": "승인되지 않은 수치/프로토콜/시간은 TBD 유지"
+    },
+    "requirements": [
+      {
+        "id": "SYS-REQ-001",
+        "title": "3상 모터 1축 구동",
+        "category": "functional",
+        "requirement": "시스템은 연결된 하나의 3상 PMSM/BLDC 모터에 3상 구동 전압을 인가할 수 있어야 한다.",
+        "source": [
+          "STK-REQ-001",
+          "STK-REQ-002"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "구동부와 모터 결선이 전체 시스템의 기본 기능이다.",
+        "operating_environment_impact": "모터 배선·절연·시험 지그의 물리적 연결 조건을 규정해야 한다.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "승인된 모터 및 시험 전원에서 각 3상 출력이 지정된 구동 명령에 따라 동작함을 확인한다."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-002",
+        "title": "DC 입력 동작 범위",
+        "category": "electrical",
+        "requirement": "시스템은 DC 링크 입력전압이 TBD V 이상 TBD V 이하일 때 요구된 구동 기능을 제공해야 한다.",
+        "source": [
+          "STK-REQ-002",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "전원 공급기 선택과 MOSFET/전력부 전압 정격을 일치시키기 위해 필요하다.",
+        "operating_environment_impact": "전원 공급기 정격·케이블·역기전력·회생 에너지 경로에 영향을 준다.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "하한/명목/상한 전압에서 기본 동작을 확인한다. 전압과 허용 오차는 TBD."
+        },
+        "open_points": [
+          "DC 입력 최저·명목·최고 동작전압 TBD",
+          "시험 전원 용량 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-003",
+        "title": "연속 상전류 정격",
+        "category": "performance",
+        "requirement": "시스템은 운용 온도 TBD °C 및 냉각 조건 TBD에서 상전류 RMS TBD A를 지속적으로 공급해야 한다.",
+        "source": [
+          "STK-REQ-002",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "구동 지속시간 및 열 평형 조건에서 장치가 파손되지 않도록 정격을 정의한다.",
+        "operating_environment_impact": "모터, 부하, 히트싱크·통풍 및 전원 용량 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "실측 RMS 전류·온도·보호동작을 관측하여 TBD분 동안 요구조건 충족."
+        },
+        "open_points": [
+          "연속 전류와 RMS 정의 TBD",
+          "시험 시간·주위 온도·냉각 조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-004",
+        "title": "피크 상전류 한계",
+        "category": "performance",
+        "requirement": "시스템은 정의된 운용 조건에서 최대 상전류 TBD A를 TBD ms 이하로 공급하고 한계 초과를 제한해야 한다.",
+        "source": [
+          "STK-REQ-002",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "단시간 과부하 허용범위가 전력소자 보호 및 제어 한계 설정을 좌우한다.",
+        "operating_environment_impact": "부하·전원·계측·전력 MOSFET 열 스트레스에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "TBD A/TBD ms 경계 전후에서 출력 제한 및 손상 없음 확인."
+        },
+        "open_points": [
+          "피크 상전류/지속시간/복귀 조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-005",
+        "title": "정격 초과 출력 제한",
+        "category": "safety_related",
+        "requirement": "시스템은 전류·전력의 승인된 한계를 넘는 구동 요구를 제한해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-015"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "상위 명령 이상 또는 설정 오류가 허용 출력을 넘지 않게 하기 위함이다.",
+        "operating_environment_impact": "명령원/모터 출력의 동작 제한이 발생함.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "한계를 초과한 명령에 대해 정해진 제한 동작 및 진단 상태를 확인한다(제한 정책 TBD)."
+        },
+        "open_points": [
+          "전력 제한 기준·최대 허용 출력·제한 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-006",
+        "title": "상전류 측정",
+        "category": "interface",
+        "requirement": "시스템은 전류 제어와 고장 판단에 필요한 모터 상전류를 측정하고 제어 알고리즘에 제공해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-004",
+          "STK-REQ-008"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "FOC와 전기적 보호에 필요한 상전류 관측을 확보한다.",
+        "operating_environment_impact": "전류 센서 및 신호 품질과 측정 설비 연관.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "영점 및 선택된 시험 전류에서 측정 오차 TBD A 또는 TBD % 이하를 확인한다."
+        },
+        "open_points": [
+          "센싱 토폴로지·범위·정확도 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-007",
+        "title": "회전자 위치 피드백",
+        "category": "interface",
+        "requirement": "시스템은 3상 모터의 전기각 산출에 필요한 회전자 위치 신호를 취득해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-006"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "센서 기반 FOC를 위한 전기각 관측 정보를 확보한다.",
+        "operating_environment_impact": "센서 배치·기계 공차·선정 센서 인터페이스 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "선정 센서 및 시험 회전 범위에서 위치 피드백 취득과 갱신을 확인한다."
+        },
+        "open_points": [
+          "엔코더 종류·해상도·설치 방식 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-008",
+        "title": "각도 기준점 캘리브레이션",
+        "category": "functional",
+        "requirement": "시스템은 센서 기준과 모터 전기각의 관계를 설정할 수 있는 캘리브레이션 절차를 제공해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-011"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "회전자 위치 센서 기준과 모터 전기각의 오프셋을 확정한다.",
+        "operating_environment_impact": "캘리브레이션 중 회전 가능성 및 지그 안전 조치가 필요.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "캘리브레이션 이후 지정 방향으로 폐루프 구동 가능하고 결과가 기록/재사용됨을 확인한다."
+        },
+        "open_points": [
+          "캘리브레이션 절차·허용 오차·저장 방식 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-009",
+        "title": "전류 제어 모드",
+        "category": "functional",
+        "requirement": "시스템은 승인된 전류 명령에 따라 폐루프 전류 제어 모드에서 동작해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-004"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "전류 루프는 토크 생성 및 상위 속도/위치 제어의 기초이다.",
+        "operating_environment_impact": "전원·모터 부하가 시험 조건에 따라 제한되어야 한다.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "전류 스텝·정상 상태 추종 결과를 SYS-REQ-038 성능기준에 따라 판정한다."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-010",
+        "title": "속도 제어 모드",
+        "category": "functional",
+        "requirement": "시스템은 승인된 속도 명령에 따라 폐루프 속도 제어 모드에서 동작해야 한다.",
+        "source": [
+          "STK-REQ-005"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "목표 회전속도 추종 기능을 제공하기 위함이다.",
+        "operating_environment_impact": "회전 지그·부하·기계적 보호가 필요.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "속도 지령 인가 후 SYS-REQ-039 성능기준에 따라 추종을 판정한다."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-011",
+        "title": "위치 제어 모드",
+        "category": "functional",
+        "requirement": "시스템은 승인된 위치 명령에 따라 폐루프 위치 제어 모드에서 동작해야 한다.",
+        "source": [
+          "STK-REQ-006"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "회전자 위치 추종 기능을 제공하기 위함이다.",
+        "operating_environment_impact": "구동 범위·기구 간섭에 대한 상위 시스템 제한이 필요.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "위치 지령 인가 후 SYS-REQ-040 성능기준에 따라 추종을 판정한다."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-012",
+        "title": "제어 모드 전환",
+        "category": "functional",
+        "requirement": "시스템은 제어 모드 전환 시 사전에 정의된 상태 전이 조건을 만족한 경우에만 새로운 제어 모드를 활성화해야 한다.",
+        "source": [
+          "STK-REQ-004",
+          "STK-REQ-005",
+          "STK-REQ-006",
+          "STK-REQ-016"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "제어 모드 전환 중 명령 불연속으로 인한 급격한 구동을 방지한다.",
+        "operating_environment_impact": "모드 전환에 따른 급격한 모터 거동 영향을 관리해야 한다.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "운전 중·정지 중 모드 전환 요청에 대해 전이표의 허용/거부 결과 확인."
+        },
+        "open_points": [
+          "모드 전환 상태 전이 규칙 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-013",
+        "title": "구동 Enable 조건",
+        "category": "safety_related",
+        "requirement": "시스템은 명시적으로 유효한 구동 활성화 명령을 받은 이후에만 인버터의 구동 출력을 활성화할 수 있어야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "명시적 활성화 의사 없이 PWM이 시작되는 것을 방지한다.",
+        "operating_environment_impact": "외부 전원 투입 순서 및 상위 제어기 명령 흐름 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "전원 인가 및 초기화 완료 후 Enable 전 구동 출력 비활성 상태 확인."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-014",
+        "title": "구동 Disable 동작",
+        "category": "safety_related",
+        "requirement": "시스템은 구동 비활성화 명령에 대해 TBD ms 이내 지정된 출력 비활성 상태로 전환해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "운전자가 구동을 종료할 수 있도록 출력 비활성 응답을 정의한다.",
+        "operating_environment_impact": "모터 관성·회생·정지 유형(coast/brake)에 영향을 줌.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "Disable 명령 수신부터 Gate/PWM 비활성화까지 시간을 계측하여 TBD ms 이하 확인."
+        },
+        "open_points": [
+          "출력 비활성 허용 시간 및 물리적 정지 동작 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-015",
+        "title": "초기화 시 출력 억제",
+        "category": "safety_related",
+        "requirement": "시스템은 리셋·전원 인가 후 초기화와 필수 진단이 완료될 때까지 3상 구동 출력을 비활성으로 유지해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "전원 투입/리셋 중 MCU 출력 불확정 상태에서 예기치 않은 구동을 방지한다.",
+        "operating_environment_impact": "시험자가 전원 재인가할 때 예상치 않은 모터 회전 방지.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "전원/리셋 시퀀스 동안 Gate Enable 및 PWM 출력 감시."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-016",
+        "title": "센서 피드백 이상 처리",
+        "category": "safety_related",
+        "requirement": "시스템은 위치 피드백이 유효하지 않다고 판단하면 TBD ms 안에 정의된 Fault 상태 및 출력 제어 상태로 전환해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-009"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "각도 피드백 오류 상태에서 센서 기반 폐루프 제어가 잘못 작동하는 것을 제한한다.",
+        "operating_environment_impact": "센서 단선·커넥터 접촉 불량과 모터 동작에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "센서 단절/오류 모의 시험에서 오류 검출·출력 처리 확인."
+        },
+        "open_points": [
+          "피드백 유효성 판단 기준·Fault 지연/대응 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-017",
+        "title": "독립적인 과전류 차단 경로",
+        "category": "safety_related",
+        "requirement": "시스템은 정의된 과전류 한계를 초과하는 사건에 대해 MCU의 정상 주기 태스크 완료에만 의존하지 않는 출력 제한 또는 차단 경로를 가져야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "주기 태스크 실행 중단·지연 상황에서도 위험한 상전류를 제한하도록 설계한다.",
+        "operating_environment_impact": "Gate Driver 및 전원·계측·전력부 구현에 직접 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "안전한 고장 주입 조건에서 과전류 임계값·차단 반응·제어 루프 비의존성 확인."
+        },
+        "open_points": [
+          "트립 전류, 지연, 차단 후 재시도 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-018",
+        "title": "DC 저전압 진단",
+        "category": "safety_related",
+        "requirement": "시스템은 DC 링크 전압이 TBD V 미만인 상태를 검출하고 지정된 구동 제한 상태로 전환해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "제어가 불가능해질 수 있는 부족한 DC 링크 전압에서 구동을 제한한다.",
+        "operating_environment_impact": "전원 공급기 저전압 시 모터 동작 제한.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "DC 전압 하강 시험에서 진단 임계값/히스테리시스/동작 상태 확인."
+        },
+        "open_points": [
+          "전압 임계값·히스테리시스·응답시간 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-019",
+        "title": "DC 과전압 진단",
+        "category": "safety_related",
+        "requirement": "시스템은 DC 링크 전압이 TBD V를 초과하면 지정된 구동 제한 상태로 전환해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "전력부 정격을 넘는 DC 링크 전압에서 구동을 제한한다.",
+        "operating_environment_impact": "회생·부하 변화 시 DC 버스 및 공급기 보호에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "승인된 시험 방식으로 과전압을 모의하고 진단/출력 제어 확인."
+        },
+        "open_points": [
+          "과전압 임계값·응답시간 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-020",
+        "title": "열 보호",
+        "category": "safety_related",
+        "requirement": "시스템은 전력부 또는 주요 제어부의 감시 온도가 TBD °C를 넘으면 지정된 출력 제한 또는 Fault 동작을 수행해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "전력 소자의 온도 상승에 따른 열적 파손 가능성을 낮춘다.",
+        "operating_environment_impact": "보드 방열, 밀폐/통풍 조건, 시험 안전에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "온도 입력 모의/가열 시험에서 한계 초과 인식과 보호 반응 확인."
+        },
+        "open_points": [
+          "온도 감시 지점·한계·디레이팅 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-021",
+        "title": "구동 Enable 후 최초 명령 미수신 감지",
+        "category": "safety_related",
+        "requirement": "시스템은 구동 Enable 수락 후 TBD ms 이내에 최초 유효 구동 명령이 도착하지 않으면 지정된 Fault/비활성 상태로 전환해야 한다.",
+        "source": [
+          "STK-REQ-007",
+          "STK-REQ-010",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "기동 직후 단 한 번도 구동 명령이 오지 않는 상황을 놓치지 않기 위함이다.",
+        "operating_environment_impact": "CAN Host 메시지 주기·명령 실패 상태에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "Enable 후 구동 명령을 전혀 보내지 않은 상태에서 TBD ms 경과 시 오류 검출과 PWM/Gate 상태 확인."
+        },
+        "open_points": [
+          "최초 명령 미수신 판단 기산점과 허용시간 TBD",
+          "이상 상태에서 인버터 출력 및 Fault 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-022",
+        "title": "잘못된 명령 거부",
+        "category": "safety_related",
+        "requirement": "시스템은 문법·범위·모드 조건을 만족하지 않는 구동 명령을 적용하지 않고 진단 가능하게 처리해야 한다.",
+        "source": [
+          "STK-REQ-007",
+          "STK-REQ-009",
+          "STK-REQ-010"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "통신 오류 또는 입력값 손상으로 허용되지 않은 모터 구동이 발생하는 것을 제한한다.",
+        "operating_environment_impact": "상위 제어기의 프로토콜 준수 부담에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "범위 초과·잘못된 DLC/명령·불허 모드 명령 시험에서 실제 출력 변화 없음 및 오류 기록 확인."
+        },
+        "open_points": [
+          "프로토콜 인코딩·유효성 규칙 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-023",
+        "title": "고장 후 재구동 방지",
+        "category": "safety_related",
+        "requirement": "시스템은 구동 차단을 요구하는 Fault 발생 후 정의된 해제 조건이 충족되기 전까지 구동 Enable을 수락하지 않아야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "고장 원인이 해소되지 않은 상태에서 재구동이 이루어지는 것을 막는다.",
+        "operating_environment_impact": "호스트 복구 절차 및 현장 인력의 Fault Reset 동작 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "각 Fault에 대해 복구 조건 이전 Enable 거부 및 조건 충족 후 복귀 확인."
+        },
+        "open_points": [
+          "Fault별 latched/auto recovery 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-024",
+        "title": "Fault 코드 보고",
+        "category": "diagnostic",
+        "requirement": "시스템은 감지된 고장 원인을 식별 가능한 Fault 코드 또는 상태값으로 외부 진단 인터페이스에 제공해야 한다.",
+        "source": [
+          "STK-REQ-008",
+          "STK-REQ-009"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "Fault 원인을 식별해 개발·시험·운용 중 원인 분석을 돕는다.",
+        "operating_environment_impact": "상위 제어기 상태 표시 및 로그 해석에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "각 정의된 진단조건 주입 시 해당 Fault 코드와 상태가 읽히는지 확인."
+        },
+        "open_points": [
+          "Fault 목록·코드 맵 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-025",
+        "title": "CAN FD 물리 통신",
+        "category": "interface",
+        "requirement": "시스템은 외부 CAN FD 호스트와 연결되어 CAN FD 프레임을 송수신할 수 있어야 한다.",
+        "source": [
+          "STK-REQ-007"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "상위 제어기와 모터제어기 간 기본 통신 수단을 확보한다.",
+        "operating_environment_impact": "CAN 배선·종단·커넥터·트랜시버 선정에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "승인된 인터페이스 연결 후 명령·응답 프레임 교환 및 CRC/버스 오류 상태 확인."
+        },
+        "open_points": [
+
+        ]
+      },
+      {
+        "id": "SYS-REQ-026",
+        "title": "명령 인터페이스",
+        "category": "interface",
+        "requirement": "시스템은 CAN FD를 통해 Enable/Disable 및 승인된 전류·속도·위치 목표 명령을 수신하고 해석해야 한다.",
+        "source": [
+          "STK-REQ-004",
+          "STK-REQ-005",
+          "STK-REQ-006",
+          "STK-REQ-007"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "구동 명령의 의미와 수신 경로를 표준화한다.",
+        "operating_environment_impact": "상위 Host 프로토콜·데이터 스케일 및 제어모드 명세 필요.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "각 명령 프레임을 송신하여 대상 모드/명령값 수신 확인."
+        },
+        "open_points": [
+          "moteus 프로토콜 호환 여부·프레임 포맷 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-027",
+        "title": "상태 텔레메트리",
+        "category": "interface",
+        "requirement": "시스템은 지정된 진단 인터페이스를 통해 구동 상태, 현재 모드, 전류, 속도, 위치, 버스전압, 감시 온도를 조회할 수 있어야 한다.",
+        "source": [
+          "STK-REQ-007",
+          "STK-REQ-008"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "시험 및 제어기의 상태 확인을 위해 측정값·상태를 제공한다.",
+        "operating_environment_impact": "호스트 대역폭·측정 기준·상태 데이터 유효성에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "각 항목을 조회하여 단위·스케일·유효 상태 및 참값 비교 확인."
+        },
+        "open_points": [
+          "조회/주기 송신 방식·단위/주기 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-028",
+        "title": "CAN FD 통신 설정",
+        "category": "performance",
+        "requirement": "시스템은 명세된 CAN FD Nominal Bitrate TBD bit/s 및 Data Bitrate TBD bit/s에서 동작해야 한다.",
+        "source": [
+          "STK-REQ-007"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "상위 통신 환경과 동작할 CAN FD 타이밍 조건을 합의한다.",
+        "operating_environment_impact": "호스트 및 CAN 어댑터 설정에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "지정 비트레이트/물리 조건에서 통신 성공과 오류율 조건 확인."
+        },
+        "open_points": [
+          "Arbitration/Data bitrate, BRS 사용 여부, 오류 허용 조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-029",
+        "title": "노드 주소 지정",
+        "category": "interface",
+        "requirement": "시스템은 CAN 네트워크에서 자신의 논리 노드 주소를 식별하고 해당 대상의 구동 명령만 수락해야 한다.",
+        "source": [
+          "STK-REQ-007"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "동일 버스에서 다른 모터제어기 명령이 잘못 적용되는 것을 막는다.",
+        "operating_environment_impact": "멀티 노드 운용 시 주소 충돌 방지에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "다른 노드 주소 명령을 송신해 모터 출력 명령에 영향을 주지 않음 확인."
+        },
+        "open_points": [
+          "CAN ID 설계 및 주소 저장/변경 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-030",
+        "title": "설정값 변경 인터페이스",
+        "category": "diagnostic",
+        "requirement": "시스템은 권한이 허용된 개발 인터페이스를 통해 주요 제어/통신 제한 파라미터를 조회하고 변경할 수 있어야 한다.",
+        "source": [
+          "STK-REQ-008",
+          "STK-REQ-011"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "펌웨어 재빌드 없이 주요 운전 파라미터를 시험·조정하게 한다.",
+        "operating_environment_impact": "개발 PC 도구 및 잘못된 설정의 위험 관리에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "설정 읽기/쓰기 후 실제 설정 반영 여부 확인."
+        },
+        "open_points": [
+          "진단 접근 제어·설정 항목·적용 시점 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-031",
+        "title": "설정값 저장/검증",
+        "category": "safety_related",
+        "requirement": "시스템은 저장 가능한 설정값의 무결성 또는 유효성을 검증하고 유효하지 않은 설정값을 활성화하지 않아야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-011"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "설정 파손이나 전원 재인가 시 잘못된 설정 적용을 막는다.",
+        "operating_environment_impact": "Flash 수명·전원 차단 타이밍 및 운전자 설정 절차 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "설정 저장·전원 재인가·손상/범위 초과 설정 주입 후 복구/거부 확인."
+        },
+        "open_points": [
+          "설정 저장 범위·CRC/버전·기본값·Recovery 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-032",
+        "title": "디버그·프로그래밍 연결",
+        "category": "interface",
+        "requirement": "시스템은 지정된 디버그 인터페이스를 통해 MCU 펌웨어를 프로그래밍하고 기본 디버깅을 수행할 수 있어야 한다.",
+        "source": [
+          "STK-REQ-012",
+          "STK-REQ-013"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "자체 제작 PCB의 펌웨어 다운로드·디버깅과 복구에 필요하다.",
+        "operating_environment_impact": "디버그 커넥터·핀/접지·절연/보호 설비 연결에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Demonstration",
+          "acceptance_criteria": "조립 보드에서 FW 다운로드, halt/run, 레지스터/메모리 읽기 시연."
+        },
+        "open_points": [
+          "SWD 커넥터/테스트패드 형상 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-033",
+        "title": "전원·신호 관측 접근성",
+        "category": "maintainability",
+        "requirement": "시스템은 전원 레일과 핵심 구동/보호 신호의 Bring-up을 위한 전기적 관측 지점을 제공해야 한다.",
+        "source": [
+          "STK-REQ-008",
+          "STK-REQ-012",
+          "STK-REQ-013"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "Bring-up 시 주요 전압 및 보호 신호의 가시성을 높인다.",
+        "operating_environment_impact": "보드 크기·측정 접지·프로브 단락 위험에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Inspection",
+          "acceptance_criteria": "회로도/PCB/조립품에서 정의된 테스트 포인트와 안전한 계측 접근 확인."
+        },
+        "open_points": [
+          "필수 테스트 포인트 목록 및 절연/접근 조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-034",
+        "title": "구동 상태 보고",
+        "category": "diagnostic",
+        "requirement": "시스템은 최소한 초기화, 비활성, 구동, 고장의 시스템 상태를 구분하여 외부에서 조회할 수 있도록 해야 한다.",
+        "source": [
+          "STK-REQ-008",
+          "STK-REQ-011",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "호스트가 모터제어기 상태를 기반으로 구동 명령을 결정하게 한다.",
+        "operating_environment_impact": "외부 Host가 정상/고장 상태를 해석하는 방법에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "각 상태로 전이시켜 외부 진단값과 실제 PWM/Gate 상태 일치 확인."
+        },
+        "open_points": [
+          "상태 전이 세부 정의 및 상태 ID TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-035",
+        "title": "회생 에너지 상황 처리",
+        "category": "safety_related",
+        "requirement": "시스템은 모터로부터 DC 링크로 에너지가 유입되는 상태를 감시하고 승인된 DC 전압 한계를 넘기지 않도록 정의된 제한·차단 동작을 수행해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-015"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "모터 감속·외란 등으로 DC 링크가 과전압이 되는 상황을 관리한다.",
+        "operating_environment_impact": "회생 에너지를 흡수할 수 있는 시험 전원/브레이크 경로 필요.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "전원·부하 모의 또는 제한된 회생 시험에서 DC 전압과 보호 동작 확인."
+        },
+        "open_points": [
+          "DC-link 흡수 에너지/제한 전략 및 시험 방법 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-036",
+        "title": "FOC/전류제어 실행주기",
+        "category": "performance",
+        "requirement": "시스템은 전류 제어 알고리즘의 실행주기 TBD µs와 허용 Jitter TBD µs 조건을 만족해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-004",
+          "STK-REQ-014"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "제어 응답과 실시간성을 결정하는 제어 주기·Jitter를 검증한다.",
+        "operating_environment_impact": "MCU 성능/ADC/PWM 동기와 EMI 등 외부 전기 환경 영향을 받음.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "타깃 MCU에서 인터럽트 실행주기·Jitter·WCET 계측."
+        },
+        "open_points": [
+          "전류 제어 주기, Jitter, WCET 허용기준 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-037",
+        "title": "PWM 스위칭 주파수",
+        "category": "performance",
+        "requirement": "시스템은 정상 구동 시 PWM 스위칭 주파수를 TBD kHz로 유지해야 한다.",
+        "source": [
+          "STK-REQ-003",
+          "STK-REQ-014",
+          "STK-REQ-015"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "스위칭 손실·전류 제어 지연·소음에 영향을 주는 PWM 동작을 정의한다.",
+        "operating_environment_impact": "모터 음향, 스위칭 손실, 전원 및 EMC에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "Gate/PWM 신호의 주파수와 주기 편차 측정."
+        },
+        "open_points": [
+          "스위칭 주파수 및 허용오차 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-038",
+        "title": "전류 제어 응답 성능",
+        "category": "performance",
+        "requirement": "시스템은 정의된 동작점과 부하에서 전류 제어 정상상태 오차 TBD % 이하 및 응답시간 TBD ms 이하를 달성해야 한다.",
+        "source": [
+          "STK-REQ-004",
+          "STK-REQ-014"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "FOC 전류 루프의 성능을 정량적인 시험 기준으로 판정한다.",
+        "operating_environment_impact": "센서 대역폭·모터 인덕턴스·DC 전원 여유에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "계측된 전류 스텝 응답에서 응답시간/정상상태 오차를 산정한다."
+        },
+        "open_points": [
+          "오차 정의·응답시간 정의·시험점·부하조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-039",
+        "title": "속도 제어 응답 성능",
+        "category": "performance",
+        "requirement": "시스템은 정의된 동작점과 부하에서 속도 추종오차 TBD rpm 이하 및 응답시간 TBD ms 이하를 달성해야 한다.",
+        "source": [
+          "STK-REQ-005",
+          "STK-REQ-014"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "속도 제어 기능의 추종 성능을 정량적으로 판정한다.",
+        "operating_environment_impact": "모터 관성·부하·속도 측정기의 해상도에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "속도 지령 변동 및 외란 인가로 정상상태 오차·과도응답 측정."
+        },
+        "open_points": [
+          "속도 범위·오차·응답시간/오버슈트 기준·부하조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-040",
+        "title": "위치 제어 응답 성능",
+        "category": "performance",
+        "requirement": "시스템은 정의된 운전 구간에서 위치 추종오차 TBD deg 이하 및 정착시간 TBD ms 이하를 달성해야 한다.",
+        "source": [
+          "STK-REQ-006",
+          "STK-REQ-014"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "위치 제어 기능의 추종 성능을 정량적으로 판정한다.",
+        "operating_environment_impact": "기구 제한·센서 분해능·부하 및 백래시 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "위치 명령에 대한 정착시간·오차를 외부 기준 계측으로 판정."
+        },
+        "open_points": [
+          "각도 단위/좌표·오차·정착시간·기계 구간 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-041",
+        "title": "주위 온도 동작 범위",
+        "category": "environmental",
+        "requirement": "시스템은 주위 온도 TBD °C ~ TBD °C에서 지정된 기능·성능을 충족해야 한다.",
+        "source": [
+          "STK-REQ-013",
+          "STK-REQ-015"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "PCB 열 설계와 운용 허용 환경의 경계를 정한다.",
+        "operating_environment_impact": "시험 챔버, 방열 구조, 냉각 및 보드 배치에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "온도 조건별 기본 구동 및 보호동작 확인."
+        },
+        "open_points": [
+          "온도 범위·냉각 조건 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-042",
+        "title": "물리적 장착/연결",
+        "category": "physical",
+        "requirement": "시스템은 승인된 외형 치수 TBD mm 및 전원·3상 모터·CAN FD·센서/디버그 접속 인터페이스를 만족해야 한다.",
+        "source": [
+          "STK-REQ-012",
+          "STK-REQ-013"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "제작·조립된 보드를 실제 시스템에 연결할 물리적 조건을 규정한다.",
+        "operating_environment_impact": "모터 장착·배선 경로·조립 공구 접근에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Inspection",
+          "acceptance_criteria": "기구/커넥터 도면 및 제작 보드 실측과 연결 시험."
+        },
+        "open_points": [
+          "외형·홀·커넥터·핀배치 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-043",
+        "title": "초기 구동 준비시간",
+        "category": "performance",
+        "requirement": "시스템은 전원인가 후 TBD ms 이내에 초기화/자가진단 결과를 외부에서 확인 가능한 상태로 제공해야 한다.",
+        "source": [
+          "STK-REQ-008",
+          "STK-REQ-011",
+          "STK-REQ-016"
+        ],
+        "priority": "Should",
+        "status": "Draft",
+        "rationale": "호스트가 초기화를 기다리는 조건과 구동 준비 가능 시점을 정의한다.",
+        "operating_environment_impact": "호스트 부팅 시퀀스 및 Enable 명령 시점에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "Power-on 반복시험에서 최초 상태 조회 가능 시점 측정."
+        },
+        "open_points": [
+          "초기화 완료시간/상태보고 기한 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-044",
+        "title": "정의된 Fault 중 PWM 출력 비활성",
+        "category": "safety_related",
+        "requirement": "시스템은 구동 차단 대상으로 분류된 Fault가 확정되면 Gate Driver/PWM의 구동 출력을 TBD ms 이내에 비활성화해야 한다.",
+        "source": [
+          "STK-REQ-009",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "고장 검출 후 실제 구동 출력 비활성 경로의 시간적 동작을 확인한다.",
+        "operating_environment_impact": "Fault 발생 시 freewheel/brake/회생 등 실제 모터 거동에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "각 차단대상 Fault에 대해 실제 게이트/PWM 비활성 전이시간을 계측."
+        },
+        "open_points": [
+          "Fault별 차단정책·종단 출력 상태·반응시간 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-045",
+        "title": "사용자 설정 과도 명령 제한",
+        "category": "safety_related",
+        "requirement": "시스템은 외부에서 요청한 속도·위치·전류 목표값을 승인된 구동 범위 내로 제한해야 한다.",
+        "source": [
+          "STK-REQ-004",
+          "STK-REQ-005",
+          "STK-REQ-006",
+          "STK-REQ-009"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "초과 명령이 제어기 정격을 넘는 구동으로 전파되지 않도록 한다.",
+        "operating_environment_impact": "상위 제어기가 요청한 지령과 실제 인가 지령 차이에 영향.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "최댓값/최솟값/경계 초과 명령에서 정해진 제한 정책 확인."
+        },
+        "open_points": [
+          "명령별 허용 범위·클램프/거부 정책 TBD"
+        ]
+      },
+      {
+        "id": "SYS-REQ-046",
+        "title": "운전 중 명령 갱신 중단 감지",
+        "category": "safety_related",
+        "requirement": "시스템은 마지막 유효 구동 명령 수신 후 TBD ms 동안 신규 유효 명령을 수신하지 못하면 지정된 Fault/비활성 상태로 전환해야 한다.",
+        "source": [
+          "STK-REQ-007",
+          "STK-REQ-010",
+          "STK-REQ-016"
+        ],
+        "priority": "Must",
+        "status": "Draft",
+        "rationale": "운전 중 갱신되는 구동 명령이 중단됐을 때 무기한 이전 지령으로 구동되지 않게 한다.",
+        "operating_environment_impact": "CAN Host 메시지 주기 및 운전 중 통신 상실 정책에 영향을 준다.",
+        "technical_feasibility": {
+          "status": "NotAssessed",
+          "evidence": "TBD"
+        },
+        "verification": {
+          "method": "Test",
+          "acceptance_criteria": "정상 구동 명령을 보내다가 송신을 중단하여 TBD ms 경과 후 상태 및 출력 비활성 반응시간을 측정."
+        },
+        "open_points": [
+          "유효 명령 갱신 주기·Timeout 시간·Fault/정지 동작 TBD"
+        ]
+      }
+    ]
+  }
+}

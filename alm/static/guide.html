@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motor ALM 사용설명서</title>
+  <style>
+    :root{--navy:#14263b;--ink:#1d3043;--muted:#627588;--teal:#087f73;--line:#dfe7eb;--bg:#f4f7f8;--pale:#e9f5f2;--amber:#a96920}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+    a{color:var(--teal)}a:hover{text-decoration:none}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1450px;margin:auto;min-height:100vh}
+    aside{background:var(--navy);color:#dbe7ed;padding:28px 18px;position:sticky;top:0;height:100vh;overflow:auto}.logo{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:800;color:white;padding:0 10px 23px}.mark{display:grid;place-items:center;background:#16a697;border-radius:9px;width:33px;height:33px}.side-label{color:#819db1;font-size:10px;letter-spacing:1.5px;font-weight:800;padding:12px 10px}.side-nav a{display:block;color:#c4d3dc;text-decoration:none;padding:7px 10px;border-radius:7px;font-size:13px}.side-nav a:hover{background:#284059;color:white}.side-home{display:block;margin:20px 10px;color:#8cddd2!important;font-size:12px}.content{min-width:0;padding:42px clamp(20px,5vw,72px) 100px}.page{max-width:930px;margin:auto}.eyebrow{font-size:11px;color:var(--teal);font-weight:800;letter-spacing:1.5px}.cover{background:linear-gradient(120deg,#fff 65%,#e2f5f0);border:1px solid var(--line);border-radius:17px;padding:42px;margin-bottom:35px;box-shadow:0 15px 38px #1a3a5010}h1{font-size:37px;line-height:1.22;margin:12px 0 13px;letter-spacing:-1.2px}h2{font-size:25px;line-height:1.3;margin:0 0 18px;letter-spacing:-.5px}h3{font-size:18px;margin:26px 0 8px}p{margin:9px 0 15px}.lead{font-size:17px;color:#496176;max-width:650px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chip{background:#e8f4f1;color:#0a756c;padding:5px 10px;border-radius:100px;font-size:12px;font-weight:700}.section{background:white;border:1px solid var(--line);border-radius:14px;padding:30px 34px;margin:17px 0;box-shadow:0 8px 25px #15384a09;scroll-margin-top:20px}.section-number{font-size:11px;letter-spacing:1.5px;font-weight:800;color:var(--teal);margin-bottom:9px}.steps{counter-reset:step;padding:0;list-style:none}.steps li{counter-increment:step;position:relative;margin:17px 0;padding-left:43px}.steps li:before{content:counter(step);position:absolute;left:0;top:0;border-radius:8px;background:var(--pale);color:var(--teal);width:28px;height:28px;text-align:center;line-height:28px;font-weight:800}.callout{border-left:4px solid var(--teal);background:#f0f8f6;padding:13px 18px;border-radius:0 8px 8px 0;margin:21px 0}.callout.warn{border-color:#d69a50;background:#fff6e9}.callout p{margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mini{border:1px solid var(--line);border-radius:10px;padding:16px 18px}.mini strong{display:block;margin-bottom:3px}.mini p{font-size:13px;color:var(--muted);margin:0}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px;margin:13px 0}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f4f8f9;color:#526b7d;white-space:nowrap}code{background:#eff3f5;border-radius:4px;padding:2px 5px;font:12px ui-monospace,SFMono-Regular,monospace;color:#0b6d67}pre{background:#15283b;color:#eaf6f4;padding:17px 20px;border-radius:9px;overflow:auto;line-height:1.55;font-size:12px}pre code{background:none;color:inherit;padding:0}ul{padding-left:22px}li{margin:6px 0}.quiet{color:var(--muted);font-size:13px}.footer{font-size:12px;color:var(--muted);padding:23px 5px;text-align:center}.print-link{display:inline-block;margin-top:10px;background:#0b897b;color:#fff;text-decoration:none;padding:9px 14px;border-radius:8px;font-size:13px;font-weight:700}.print-link:hover{background:#076c61}button.print{margin-left:8px;border:1px solid #cddfe0;background:white;color:#245067;padding:9px 14px;border-radius:8px;font-weight:700;cursor:pointer}@media(max-width:800px){.layout{display:block}aside{position:static;height:auto;padding:15px}.logo{padding-bottom:0}.side-label,.side-nav{display:none}.side-home{display:inline-block;margin:5px 10px}.content{padding:20px}.cover{padding:28px}.section{padding:23px}.grid{grid-template-columns:1fr}h1{font-size:30px}}@media print{body{background:white}.layout{display:block}aside,.print-link,.print{display:none!important}.content{padding:0}.page{max-width:none}.cover,.section{break-inside:avoid;box-shadow:none}.section{margin:16px 0}.cover{padding:20px}}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div class="logo"><span class="mark">M</span> Motor ALM</div>
+    <div class="side-label">사용설명서</div>
+    <nav class="side-nav" aria-label="목차">
+      <a href="#start">1. 시작하기</a><a href="#screen">2. 화면 구성</a><a href="#items">3. 산출물 만들기·편집</a>
+      <a href="#trace">4. 추적 관계 연결</a><a href="#test">5. 시험 명세·결과</a><a href="#review">6. 점검과 승인</a>
+      <a href="#process">7. 단계별 사용 예</a><a href="#data">8. 저장·백업·원본 파일</a><a href="#faq">9. 자주 묻는 질문</a>
+    </nav>
+    <a class="side-home" href="http://127.0.0.1:8765/">← ALM 화면으로 돌아가기</a>
+  </aside>
+  <main class="content"><div class="page">
+    <header class="cover">
+      <div class="eyebrow">MCTRL-C1-RA / USER GUIDE</div>
+      <h1>Motor ALM 사용설명서</h1>
+      <p class="lead">모터제어기 Rev.A 개발 산출물을 ASPICE 단계에 따라 작성하고, 요구사항에서 설계와 시험 결과까지 연결하는 방법입니다.</p>
+      <div class="chips"><span class="chip">로컬 GUI</span><span class="chip">요구사항 관리</span><span class="chip">양방향 추적</span><span class="chip">시험·변경 이력</span></div>
+      <a class="print-link" href="http://127.0.0.1:8765/">ALM 열기</a><button class="print" type="button" onclick="window.print()">인쇄 / PDF 저장</button>
+    </header>
+
+    <section class="section" id="start"><div class="section-number">01 / QUICK START</div><h2>시작하기</h2>
+      <ol class="steps"><li><strong>실행:</strong> macOS에서 <code>alm/launch.command</code>를 더블클릭합니다. 또는 프로젝트 폴더에서 <code>python3 alm/server.py</code>를 실행합니다.</li><li>브라우저에서 <a href="http://127.0.0.1:8765/">http://127.0.0.1:8765/</a>를 엽니다.</li><li>왼쪽 <strong>SYS.2 시스템 요구</strong>를 선택해 기존 요구사항을 살펴봅니다.</li><li>요구사항을 누르면 본문, 검증 기준, 상위 요구와의 링크, 점검 항목을 볼 수 있습니다.</li><li>사용이 끝나면 서버를 실행한 Terminal 창에서 <code>Ctrl+C</code>를 누르거나 창을 닫습니다.</li></ol>
+      <div class="callout"><p>처음 데이터에는 SYS.1 요구 16건, SYS.2 요구 46건, 추적 링크 102건과 프로젝트 문서 3건이 들어 있습니다. 이후 작성한 내용은 자동 저장됩니다.</p></div>
+    </section>
+
+    <section class="section" id="screen"><div class="section-number">02 / NAVIGATION</div><h2>화면 구성</h2>
+      <div class="grid"><div class="mini"><strong>대시보드</strong><p>전체 산출물 수와 ASPICE 프로세스 지도를 봅니다. 단계 카드를 누르면 해당 목록으로 이동합니다.</p></div><div class="mini"><strong>산출물</strong><p>모든 항목을 ID·제목·본문으로 검색하고 종류와 상태로 걸러 봅니다.</p></div><div class="mini"><strong>추적성</strong><p>항목 사이의 관계 전체를 보고, 출발 항목에서 대상 항목으로 이동합니다.</p></div><div class="mini"><strong>점검</strong><p>누락된 상위 링크, TBD, 실현 가능성 평가 대기 등을 모아 봅니다.</p></div></div>
+      <p>왼쪽 <strong>PROCESS MAP</strong>은 MAN, SYS, HWE, SWE, VAL, SPL, SUP 단계를 보여줍니다. 단계를 선택하면 그 단계의 역할과 등록된 산출물이 표시됩니다.</p>
+      <p>오른쪽 위 <strong>새 산출물</strong>은 항목 생성, <strong>JSON 내보내기</strong>는 현재 데이터를 파일로 내려받는 기능입니다.</p>
+    </section>
+
+    <section class="section" id="items"><div class="section-number">03 / WORK ITEMS</div><h2>산출물 만들기·편집</h2>
+      <h3>새 항목 만들기</h3><ol class="steps"><li>왼쪽에서 만들 단계(예: <strong>SYS.3 시스템 아키텍처</strong>)를 선택합니다.</li><li><strong>＋ 새 산출물</strong>을 누르고 산출물 종류를 고릅니다.</li><li>제목과 내용을 적고 상태·우선순위·분류를 정합니다. 종류에 따라 검증 기준, 시험 절차, 실행 형상 등 추가 입력칸이 나타납니다.</li><li><strong>생성</strong>을 누릅니다. ID가 자동으로 생성되며 상세 화면이 열립니다.</li></ol>
+      <p>지원 종류: 요구사항, 아키텍처, 설계, 시험 명세, 시험 결과, 문서, 변경 요청, 문제 보고. 생성 후 ID와 프로세스·종류는 바꿀 수 없습니다.</p>
+      <h3>기존 항목 수정</h3><p>목록에서 항목을 연 뒤 <strong>편집</strong>을 누릅니다. 수정 후 <strong>저장</strong>하면 개정 번호가 올라갑니다. 이전 내용은 <strong>이력</strong>에서 확인할 수 있습니다.</p>
+      <div class="callout warn"><p><strong>항목 삭제 대신 Obsolete:</strong> 더는 사용하지 않는 요구사항은 상태를 <code>Obsolete</code>로 바꾸세요. ID와 기존 연결이 남아 추적 이력을 잃지 않습니다.</p></div>
+      <h3>상태의 의미</h3><div class="table-wrap"><table><thead><tr><th>상태</th><th>권장 의미</th></tr></thead><tbody><tr><td>Proposed</td><td>제안 단계. 이해관계자 검토 전</td></tr><tr><td>Draft</td><td>내용과 검증 조건 작성 중</td></tr><tr><td>Reviewed</td><td>내용 검토 완료, 승인 대기</td></tr><tr><td>Approved</td><td>승인된 기준</td></tr><tr><td>Obsolete</td><td>폐기·대체되었지만 이력은 보존</td></tr></tbody></table></div>
+    </section>
+
+    <section class="section" id="trace"><div class="section-number">04 / TRACEABILITY</div><h2>추적 관계 연결</h2>
+      <ol class="steps"><li>산출물 상세에서 <strong>＋ 연결</strong>을 누르거나 <strong>추적성 → ＋ 관계 추가</strong>를 누릅니다.</li><li><strong>출발 항목</strong>, <strong>관계</strong>, <strong>대상 항목</strong>을 선택합니다.</li><li><strong>관계 저장</strong>을 누릅니다. 상세 화면에는 양방향으로 표시됩니다.</li></ol>
+      <div class="table-wrap"><table><thead><tr><th>관계</th><th>사용 예</th></tr></thead><tbody><tr><td><code>derived_from</code></td><td><code>SYS-REQ-002 → STK-REQ-015</code>: 시스템 요구가 이해관계자 요구에서 도출됨</td></tr><tr><td><code>implements</code></td><td><code>HWE-DES-001 → HWE-REQ-001</code>: 설계가 요구를 구현함</td></tr><tr><td><code>allocated_to</code></td><td>시스템 기능을 아키텍처 요소에 할당함</td></tr><tr><td><code>verifies</code></td><td><code>TC-SYS5-001 → SYS-REQ-002</code>: 시험 명세가 요구를 검증함</td></tr><tr><td><code>result_of</code></td><td><code>RUN-001 → TC-SYS5-001</code>: 실행 결과가 시험 명세에 대응함</td></tr><tr><td><code>related_to</code></td><td>변경 요청 또는 문제를 관련 산출물에 연결함</td></tr></tbody></table></div>
+      <p class="quiet">표의 일부 ID는 방향을 설명하기 위한 예시입니다. 아직 만들어지지 않은 항목은 실제로 생성한 뒤 연결하세요.</p>
+      <div class="callout"><p>전형적인 흐름: 이해관계자 요구 ← 시스템 요구 ← HW/SW 요구 ← 설계, 그리고 시험 명세 → 검증 대상 요구, 시험 결과 → 시험 명세.</p></div>
+    </section>
+
+    <section class="section" id="test"><div class="section-number">05 / VERIFICATION</div><h2>시험 명세·결과 기록</h2>
+      <p><strong>시험 명세</strong>와 <strong>시험 결과</strong>를 별도 항목으로 만듭니다. 하나의 시험 명세를 여러 번 실행하더라도 명세를 복제할 필요는 없습니다.</p>
+      <ol class="steps"><li>검증 단계(예: SYS.5)에서 종류 <strong>시험 명세</strong>를 만듭니다. 사전 조건, 시험 절차, 기대 결과·판정 기준을 적습니다.</li><li>시험 명세에서 <code>verifies</code>로 대상 요구사항을 연결합니다.</li><li>실제 시험을 수행한 뒤 종류 <strong>시험 결과</strong>를 만듭니다. PASS/FAIL/BLOCKED, 실행일, HW Rev·FW Commit·모터 설정, 증거 파일 경로를 적습니다.</li><li>시험 결과에서 <code>result_of</code>로 해당 시험 명세를 연결합니다.</li></ol>
+      <div class="callout warn"><p>시험 결과의 PASS는 기록된 HW/SW 형상과 시험 조건에서의 결과입니다. 형상이 바뀌면 변경 영향을 검토하고 필요한 시험을 다시 수행하세요.</p></div>
+    </section>
+
+    <section class="section" id="review"><div class="section-number">06 / QUALITY</div><h2>점검과 승인</h2>
+      <p><strong>점검</strong> 화면의 목록을 눌러 해당 항목으로 이동합니다. 현재 초안에 TBD와 미평가 경고가 많이 표시되는 것은 예상된 상태입니다. 값을 임의로 채워 경고만 없애기보다는 실제 목표·시험 조건을 결정한 뒤 기록하세요.</p>
+      <p>SYS.2 요구사항은 다음 조건이 남으면 <code>Approved</code>로 저장할 수 없습니다.</p>
+      <ul><li>본문 또는 검증 판정 기준에 <code>TBD</code>가 남음</li><li>미결정 항목이 남음</li><li>검증 방법이나 판정 기준이 비어 있음</li><li>기술 실현 가능성이 <code>Assessed</code>가 아님</li><li>상위 이해관계자 요구와 <code>derived_from</code> 관계가 없음</li></ul>
+      <p>SYS.1 항목에 파생된 SYS.2 요구가 없거나 시험 명세·결과에 연결이 없으면 점검 화면에 경고가 표시됩니다.</p>
+    </section>
+
+    <section class="section" id="process"><div class="section-number">07 / PROCESS WALKTHROUGH</div><h2>단계별 사용 예</h2>
+      <div class="table-wrap"><table><thead><tr><th>단계</th><th>GUI에 기록할 산출물</th><th>연결할 대상</th></tr></thead><tbody><tr><td>MAN.3 / SYS.1</td><td>프로젝트 목표, 이해관계자 요구</td><td>SYS.2 시스템 요구</td></tr><tr><td>SYS.2 / SYS.3</td><td>시스템 요구, 아키텍처, 인터페이스</td><td>상위 필요와 HW/SW 할당</td></tr><tr><td>HWE.1~4</td><td>HW 요구·회로/PCB 설계·검증 명세와 결과</td><td>시스템 요구 및 HW 설계/시험</td></tr><tr><td>SWE.1~6</td><td>SW 요구·아키텍처·상세 설계·단위/통합/요구 검증</td><td>상위 요구 및 시험</td></tr><tr><td>SYS.4 / SYS.5</td><td>HW/SW 통합과 시스템 요구 검증</td><td>시스템 요구와 실행 증거</td></tr><tr><td>VAL.1 / SPL.2</td><td>사용 목적 확인, 릴리스 형상</td><td>최종 시험 결과와 형상</td></tr><tr><td>SUP.8~10</td><td>형상, 문제 보고, 변경 요청</td><td>영향받는 요구·설계·시험</td></tr></tbody></table></div>
+      <p>예를 들어 CAN 통신 상실 요구를 다룬다면 SYS.2 요구를 확인하고, SYS.3 기능 할당, HWE/SWE 세부 요구, SYS.5 시험 명세를 순서대로 추가한 뒤 관계로 연결합니다. 하드웨어와 소프트웨어 작업은 서로 병행할 수 있습니다.</p>
+    </section>
+
+    <section class="section" id="data"><div class="section-number">08 / DATA & BACKUP</div><h2>저장·백업·원본 파일</h2>
+      <div class="grid"><div class="mini"><strong>즉시 저장</strong><p>GUI에서 저장한 내용은 <code>alm/data/alm.sqlite3</code>에 반영됩니다.</p></div><div class="mini"><strong>Git 관리용 파일</strong><p><code>alm/data/workspace.json</code>에 항목·관계·변경 이력이 자동 기록됩니다.</p></div><div class="mini"><strong>수동 백업</strong><p>앱 오른쪽 위 <strong>JSON 내보내기</strong>를 눌러 현재 항목과 관계를 내려받을 수 있습니다.</p></div><div class="mini"><strong>다른 컴퓨터</strong><p>SQLite 파일이 없으면 <code>workspace.json</code>을 바탕으로 데이터베이스를 다시 만듭니다.</p></div></div>
+      <div class="callout warn"><p><strong>중요:</strong> 기존 <code>moteus_c1_aspice_draft</code>의 YAML·CSV·Markdown은 초기 자료로 보존됩니다. GUI 수정 내용이 그 파일들에 자동 반영되지는 않습니다. GUI 사용 후에는 <code>workspace.json</code>을 관리 기준으로 삼으세요.</p></div>
+      <p>원본용 <code>validate_requirements.py</code>는 GUI의 최신 데이터를 검사하지 않습니다. GUI에서 변경한 내용은 <strong>점검</strong> 화면을 확인하세요.</p>
+    </section>
+
+    <section class="section" id="faq"><div class="section-number">09 / HELP</div><h2>자주 묻는 질문</h2>
+      <h3>YAML이나 CSV를 직접 열어야 하나요?</h3><p>일상적인 요구사항 작성·수정·연결에는 필요하지 않습니다. 기존 파일은 초기 자료로 남아 있습니다.</p>
+      <h3>새 산출물의 ID를 직접 정할 수 있나요?</h3><p>현재 버전에서는 프로세스와 종류에 맞춰 자동 생성됩니다. 생성 뒤 변경할 수 없습니다.</p>
+      <h3>파일 자체를 첨부할 수 있나요?</h3><p>현재 GUI는 파일 업로드 저장소가 없습니다. KiCad·Simulink·시험 증거 파일은 프로젝트 폴더에 보관하고, 해당 산출물의 내용 또는 증거 경로 칸에 경로·형상을 적으세요.</p>
+      <h3>다른 사람이 네트워크로 접속할 수 있나요?</h3><p>기본 실행은 <code>127.0.0.1</code>에만 바인딩되어 같은 컴퓨터에서만 접속할 수 있습니다.</p>
+      <h3>ASPICE 인증 도구인가요?</h3><p>개인 프로젝트의 프로세스와 추적성 관리를 돕는 도구입니다. 공식 평가나 인증을 대신하지 않습니다.</p>
+    </section>
+    <footer class="footer">Motor ALM · MCTRL-C1-RA · 로컬 사용설명서</footer>
+  </div></main>
+</div>
+</body>
+</html>
