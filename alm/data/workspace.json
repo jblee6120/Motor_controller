@@ -22,7 +22,7 @@
       "kind": "requirement",
       "title": "자체 HW/SW 소유",
       "body": "개발자는 moteus c1을 참조하되 자체 설계한 모터제어 보드와 관리 가능한 펌웨어를 확보하고자 한다.",
-      "status": "Proposed",
+      "status": "Draft",
       "priority": "Must",
       "category": "",
       "metadata": {
@@ -30,9 +30,9 @@
         "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
         "acceptance_of_stakeholder": "TBD"
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:12:55+00:00"
     },
     {
       "id": "STK-REQ-002",
@@ -40,7 +40,7 @@
       "kind": "requirement",
       "title": "3상 모터 구동",
       "body": "사용자는 하나의 3상 PMSM/BLDC 모터를 구동하고자 한다.",
-      "status": "Proposed",
+      "status": "Draft",
       "priority": "Must",
       "category": "",
       "metadata": {
@@ -48,9 +48,9 @@
         "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
         "acceptance_of_stakeholder": "TBD"
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:13:21+00:00"
     },
     {
       "id": "STK-REQ-003",
@@ -58,7 +58,7 @@
       "kind": "requirement",
       "title": "센서 기반 FOC",
       "body": "사용자는 모터 위치/각도 피드백을 사용한 FOC를 구현하고자 한다.",
-      "status": "Proposed",
+      "status": "Draft",
       "priority": "Must",
       "category": "",
       "metadata": {
@@ -66,9 +66,9 @@
         "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
         "acceptance_of_stakeholder": "TBD"
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:13:40+00:00"
     },
     {
       "id": "STK-REQ-004",
@@ -76,7 +76,7 @@
       "kind": "requirement",
       "title": "전류 제어",
       "body": "사용자는 모터 전류 명령에 따른 폐루프 제어를 원한다.",
-      "status": "Proposed",
+      "status": "Draft",
       "priority": "Must",
       "category": "",
       "metadata": {
@@ -84,9 +84,9 @@
         "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
         "acceptance_of_stakeholder": "TBD"
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:13:54+00:00"
     },
     {
       "id": "STK-REQ-005",
@@ -326,16 +326,16 @@
         },
         "open_points": []
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:15:11+00:00"
     },
     {
       "id": "SYS-REQ-002",
       "process": "SYS.2",
       "kind": "requirement",
       "title": "DC 입력 동작 범위",
-      "body": "시스템은 DC 링크 입력전압이 TBD V 이상 TBD V 이하일 때 요구된 구동 기능을 제공해야 한다.",
+      "body": "시스템은 DC 링크 입력 전압이 10V 이상 51 V 이하일 때 요구된 구동 기능을 제공해야 한다.",
       "status": "Draft",
       "priority": "Must",
       "category": "electrical",
@@ -344,27 +344,27 @@
         "operating_environment_impact": "전원 공급기 정격·케이블·역기전력·회생 에너지 경로에 영향을 준다.",
         "technical_feasibility": {
           "status": "NotAssessed",
-          "evidence": "TBD"
+          "evidence": ""
         },
         "verification": {
           "method": "Test",
           "acceptance_criteria": "하한/명목/상한 전압에서 기본 동작을 확인한다. 전압과 허용 오차는 TBD."
         },
         "open_points": [
-          "DC 입력 최저·명목·최고 동작전압 TBD",
+          "DC 입력 최저·명목·최고 동작전압 10-51V",
           "시험 전원 용량 TBD"
         ]
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:17:47+00:00"
     },
     {
       "id": "SYS-REQ-003",
       "process": "SYS.2",
       "kind": "requirement",
       "title": "연속 상전류 정격",
-      "body": "시스템은 운용 온도 TBD °C 및 냉각 조건 TBD에서 상전류 RMS TBD A를 지속적으로 공급해야 한다.",
+      "body": "시스템은 운용 온도 -40~85°C 및 냉각 조건 TBD에서 상전류 RMS 5A를 지속적으로 공급해야 한다.",
       "status": "Draft",
       "priority": "Must",
       "category": "performance",
@@ -373,27 +373,26 @@
         "operating_environment_impact": "모터, 부하, 히트싱크·통풍 및 전원 용량 영향.",
         "technical_feasibility": {
           "status": "NotAssessed",
-          "evidence": "TBD"
+          "evidence": ""
         },
         "verification": {
           "method": "Test",
-          "acceptance_criteria": "실측 RMS 전류·온도·보호동작을 관측하여 TBD분 동안 요구조건 충족."
+          "acceptance_criteria": "실측 RMS 전류·온도·보호동작을 관측하여 30분 동안 요구조건 충족."
         },
         "open_points": [
-          "연속 전류와 RMS 정의 TBD",
-          "시험 시간·주위 온도·냉각 조건 TBD"
+          "냉각 조건 TBD"
         ]
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:22:30+00:00"
     },
     {
       "id": "SYS-REQ-004",
       "process": "SYS.2",
       "kind": "requirement",
       "title": "피크 상전류 한계",
-      "body": "시스템은 정의된 운용 조건에서 최대 상전류 TBD A를 TBD ms 이하로 공급하고 한계 초과를 제한해야 한다.",
+      "body": "시스템은 정의된 운용 조건에서 최대 상전류 15A를 100ms 이하로 공급하고 한계 초과를 제한해야 한다.",
       "status": "Draft",
       "priority": "Must",
       "category": "performance",
@@ -412,9 +411,9 @@
           "피크 상전류/지속시간/복귀 조건 TBD"
         ]
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:25:39+00:00"
     },
     {
       "id": "SYS-REQ-005",
@@ -440,9 +439,9 @@
           "전력 제한 기준·최대 허용 출력·제한 정책 TBD"
         ]
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:27:18+00:00"
     },
     {
       "id": "SYS-REQ-006",
@@ -468,9 +467,9 @@
           "센싱 토폴로지·범위·정확도 TBD"
         ]
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:44:16+00:00"
     },
     {
       "id": "SYS-REQ-007",
@@ -678,15 +677,15 @@
         },
         "verification": {
           "method": "Test",
-          "acceptance_criteria": "Disable 명령 수신부터 Gate/PWM 비활성화까지 시간을 계측하여 TBD ms 이하 확인."
+          "acceptance_criteria": "Disable 명령 수신부터 Gate/PWM 비활성화까지 시간을 계측하여 1ms 이하 확인."
         },
         "open_points": [
           "출력 비활성 허용 시간 및 물리적 정지 동작 TBD"
         ]
       },
-      "revision": 1,
+      "revision": 2,
       "created_at": "2026-10-14T14:15:12+00:00",
-      "updated_at": "2026-10-14T14:15:12+00:00"
+      "updated_at": "2026-10-15T15:45:34+00:00"
     },
     {
       "id": "SYS-REQ-015",
@@ -2126,5 +2125,329 @@
       "target": "STK-REQ-016"
     }
   ],
-  "history": []
+  "history": [
+    {
+      "item_id": "STK-REQ-001",
+      "revision": 1,
+      "snapshot": {
+        "id": "STK-REQ-001",
+        "process": "SYS.1",
+        "kind": "requirement",
+        "title": "자체 HW/SW 소유",
+        "body": "개발자는 moteus c1을 참조하되 자체 설계한 모터제어 보드와 관리 가능한 펌웨어를 확보하고자 한다.",
+        "status": "Proposed",
+        "priority": "Must",
+        "category": "",
+        "metadata": {
+          "stakeholder": "STK-OWNER",
+          "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+          "acceptance_of_stakeholder": "TBD"
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:12:55+00:00"
+    },
+    {
+      "item_id": "STK-REQ-002",
+      "revision": 1,
+      "snapshot": {
+        "id": "STK-REQ-002",
+        "process": "SYS.1",
+        "kind": "requirement",
+        "title": "3상 모터 구동",
+        "body": "사용자는 하나의 3상 PMSM/BLDC 모터를 구동하고자 한다.",
+        "status": "Proposed",
+        "priority": "Must",
+        "category": "",
+        "metadata": {
+          "stakeholder": "STK-OWNER",
+          "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+          "acceptance_of_stakeholder": "TBD"
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:13:21+00:00"
+    },
+    {
+      "item_id": "STK-REQ-003",
+      "revision": 1,
+      "snapshot": {
+        "id": "STK-REQ-003",
+        "process": "SYS.1",
+        "kind": "requirement",
+        "title": "센서 기반 FOC",
+        "body": "사용자는 모터 위치/각도 피드백을 사용한 FOC를 구현하고자 한다.",
+        "status": "Proposed",
+        "priority": "Must",
+        "category": "",
+        "metadata": {
+          "stakeholder": "STK-OWNER",
+          "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+          "acceptance_of_stakeholder": "TBD"
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:13:40+00:00"
+    },
+    {
+      "item_id": "STK-REQ-004",
+      "revision": 1,
+      "snapshot": {
+        "id": "STK-REQ-004",
+        "process": "SYS.1",
+        "kind": "requirement",
+        "title": "전류 제어",
+        "body": "사용자는 모터 전류 명령에 따른 폐루프 제어를 원한다.",
+        "status": "Proposed",
+        "priority": "Must",
+        "category": "",
+        "metadata": {
+          "stakeholder": "STK-OWNER",
+          "rationale": "사용자 제공 개발 컨셉에 기반한 제안",
+          "acceptance_of_stakeholder": "TBD"
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:13:54+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-001",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-001",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "3상 모터 1축 구동",
+        "body": "시스템은 연결된 하나의 3상 PMSM/BLDC 모터에 3상 구동 전압을 인가할 수 있어야 한다.",
+        "status": "Draft",
+        "priority": "Must",
+        "category": "functional",
+        "metadata": {
+          "rationale": "구동부와 모터 결선이 전체 시스템의 기본 기능이다.",
+          "operating_environment_impact": "모터 배선·절연·시험 지그의 물리적 연결 조건을 규정해야 한다.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "승인된 모터 및 시험 전원에서 각 3상 출력이 지정된 구동 명령에 따라 동작함을 확인한다."
+          },
+          "open_points": []
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:15:11+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-002",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-002",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "DC 입력 동작 범위",
+        "body": "시스템은 DC 링크 입력전압이 TBD V 이상 TBD V 이하일 때 요구된 구동 기능을 제공해야 한다.",
+        "status": "Draft",
+        "priority": "Must",
+        "category": "electrical",
+        "metadata": {
+          "rationale": "전원 공급기 선택과 MOSFET/전력부 전압 정격을 일치시키기 위해 필요하다.",
+          "operating_environment_impact": "전원 공급기 정격·케이블·역기전력·회생 에너지 경로에 영향을 준다.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "하한/명목/상한 전압에서 기본 동작을 확인한다. 전압과 허용 오차는 TBD."
+          },
+          "open_points": [
+            "DC 입력 최저·명목·최고 동작전압 TBD",
+            "시험 전원 용량 TBD"
+          ]
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:17:47+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-003",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-003",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "연속 상전류 정격",
+        "body": "시스템은 운용 온도 TBD °C 및 냉각 조건 TBD에서 상전류 RMS TBD A를 지속적으로 공급해야 한다.",
+        "status": "Draft",
+        "priority": "Must",
+        "category": "performance",
+        "metadata": {
+          "rationale": "구동 지속시간 및 열 평형 조건에서 장치가 파손되지 않도록 정격을 정의한다.",
+          "operating_environment_impact": "모터, 부하, 히트싱크·통풍 및 전원 용량 영향.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "실측 RMS 전류·온도·보호동작을 관측하여 TBD분 동안 요구조건 충족."
+          },
+          "open_points": [
+            "연속 전류와 RMS 정의 TBD",
+            "시험 시간·주위 온도·냉각 조건 TBD"
+          ]
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:22:30+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-004",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-004",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "피크 상전류 한계",
+        "body": "시스템은 정의된 운용 조건에서 최대 상전류 TBD A를 TBD ms 이하로 공급하고 한계 초과를 제한해야 한다.",
+        "status": "Draft",
+        "priority": "Must",
+        "category": "performance",
+        "metadata": {
+          "rationale": "단시간 과부하 허용범위가 전력소자 보호 및 제어 한계 설정을 좌우한다.",
+          "operating_environment_impact": "부하·전원·계측·전력 MOSFET 열 스트레스에 영향.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "TBD A/TBD ms 경계 전후에서 출력 제한 및 손상 없음 확인."
+          },
+          "open_points": [
+            "피크 상전류/지속시간/복귀 조건 TBD"
+          ]
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:25:39+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-005",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-005",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "정격 초과 출력 제한",
+        "body": "시스템은 전류·전력의 승인된 한계를 넘는 구동 요구를 제한해야 한다.",
+        "status": "Draft",
+        "priority": "Should",
+        "category": "safety_related",
+        "metadata": {
+          "rationale": "상위 명령 이상 또는 설정 오류가 허용 출력을 넘지 않게 하기 위함이다.",
+          "operating_environment_impact": "명령원/모터 출력의 동작 제한이 발생함.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "한계를 초과한 명령에 대해 정해진 제한 동작 및 진단 상태를 확인한다(제한 정책 TBD)."
+          },
+          "open_points": [
+            "전력 제한 기준·최대 허용 출력·제한 정책 TBD"
+          ]
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:27:18+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-006",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-006",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "상전류 측정",
+        "body": "시스템은 전류 제어와 고장 판단에 필요한 모터 상전류를 측정하고 제어 알고리즘에 제공해야 한다.",
+        "status": "Draft",
+        "priority": "Must",
+        "category": "interface",
+        "metadata": {
+          "rationale": "FOC와 전기적 보호에 필요한 상전류 관측을 확보한다.",
+          "operating_environment_impact": "전류 센서 및 신호 품질과 측정 설비 연관.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "영점 및 선택된 시험 전류에서 측정 오차 TBD A 또는 TBD % 이하를 확인한다."
+          },
+          "open_points": [
+            "센싱 토폴로지·범위·정확도 TBD"
+          ]
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:44:16+00:00"
+    },
+    {
+      "item_id": "SYS-REQ-014",
+      "revision": 1,
+      "snapshot": {
+        "id": "SYS-REQ-014",
+        "process": "SYS.2",
+        "kind": "requirement",
+        "title": "구동 Disable 동작",
+        "body": "시스템은 구동 비활성화 명령에 대해 TBD ms 이내 지정된 출력 비활성 상태로 전환해야 한다.",
+        "status": "Draft",
+        "priority": "Must",
+        "category": "safety_related",
+        "metadata": {
+          "rationale": "운전자가 구동을 종료할 수 있도록 출력 비활성 응답을 정의한다.",
+          "operating_environment_impact": "모터 관성·회생·정지 유형(coast/brake)에 영향을 줌.",
+          "technical_feasibility": {
+            "status": "NotAssessed",
+            "evidence": "TBD"
+          },
+          "verification": {
+            "method": "Test",
+            "acceptance_criteria": "Disable 명령 수신부터 Gate/PWM 비활성화까지 시간을 계측하여 TBD ms 이하 확인."
+          },
+          "open_points": [
+            "출력 비활성 허용 시간 및 물리적 정지 동작 TBD"
+          ]
+        },
+        "revision": 1,
+        "created_at": "2026-10-14T14:15:12+00:00",
+        "updated_at": "2026-10-14T14:15:12+00:00"
+      },
+      "changed_at": "2026-10-15T15:45:34+00:00"
+    }
+  ]
 }

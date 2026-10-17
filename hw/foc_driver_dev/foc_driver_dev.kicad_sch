@@ -1,0 +1,96 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "7deea2d1-75a7-480b-9244-7a68c57fd9e1")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 57.15 66.04)
+		(size 24.13 17.78)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e78312dd-9ad3-4216-a20b-02faa65d5c6e")
+		(property "Sheetname" "PowerSection"
+			(at 57.15 65.3284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "BLK_PowerSection.kicad_sch"
+			(at 57.15 84.4046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "+3.3V" input
+			(at 81.28 78.74 0)
+			(uuid "491e4039-650d-481d-9569-c3f71ebbbe78")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "+5V" input
+			(at 81.28 71.12 0)
+			(uuid "da2716f0-24eb-4221-8795-d49ac011458c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "PGND" input
+			(at 57.15 78.74 180)
+			(uuid "e9c3ae67-0e9d-4997-b2ea-bb2032dc4f60")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "V+" input
+			(at 57.15 71.12 180)
+			(uuid "a76395eb-6358-42c5-9436-7bd367fa7025")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "foc_driver_dev"
+				(path "/7deea2d1-75a7-480b-9244-7a68c57fd9e1"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
