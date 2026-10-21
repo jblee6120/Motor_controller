@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import sqlite3
@@ -15,6 +16,7 @@ from urllib.parse import unquote, urlparse
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parent / "moteus_c1_aspice_draft"
 DEFAULT_DB = HERE / "data" / "alm.sqlite3"
+SNAPSHOT = HERE / "data" / "workspace.json"
 STAGES = [
     ("MAN.3", "프로젝트 관리"), ("SYS.1", "이해관계자 요구"),
     ("SYS.2", "시스템 요구"), ("SYS.3", "시스템 아키텍처"),
@@ -72,10 +74,9 @@ def initialize(db):
         CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     """)
     if db.execute("SELECT value FROM settings WHERE key='seeded'").fetchone():
-        if not (HERE / "data" / "workspace.json").exists():
-            write_snapshot(db)
+        synchronize_snapshot(db)
         return
-    saved = HERE / "data" / "workspace.json"
+    saved = SNAPSHOT
     if saved.exists():
         snapshot = json.loads(saved.read_text(encoding="utf-8"))
         stamp = now()
@@ -92,6 +93,7 @@ def initialize(db):
                 db.execute("INSERT INTO history(item_id,revision,snapshot,changed_at) VALUES (?,?,?,?)", (
                     record["item_id"], record["revision"], json.dumps(record["snapshot"], ensure_ascii=False), record["changed_at"]))
             db.execute("INSERT INTO settings VALUES ('seeded','1')")
+            db.execute("INSERT OR REPLACE INTO settings VALUES ('snapshot_hash',?)", (file_hash(saved),))
         return
     seed = json.loads((HERE / "data" / "initial_requirements.json").read_text(encoding="utf-8"))
     stamp = now()
@@ -139,10 +141,92 @@ def write_snapshot(db):
     data = {"items": data["items"], "links": data["links"],
             "history": [{**dict(r), "snapshot": json.loads(r["snapshot"])} for r in
                         db.execute("SELECT item_id,revision,snapshot,changed_at FROM history ORDER BY id")]}
-    path = HERE / "data" / "workspace.json"
+    path = SNAPSHOT
     temp = path.with_suffix(".json.tmp")
     temp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temp.replace(path)
+    with db:
+        db.execute("INSERT OR REPLACE INTO settings VALUES ('snapshot_hash',?)", (file_hash(path),))
+
+
+def file_hash(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def snapshot_is_fast_forward(db, snapshot):
+    """Handle databases created before snapshot hashes were recorded."""
+    current = all_data(db)
+    old = {item["id"]: item for item in current["items"]}
+    new = {item["id"]: item for item in snapshot["items"]}
+    if not old.keys() <= new.keys():
+        return False
+    for ident, item in old.items():
+        candidate = new[ident]
+        if candidate["revision"] < item["revision"]:
+            return False
+        if candidate["revision"] == item["revision"] and candidate != item:
+            return False
+    old_history = [(r["item_id"], r["revision"], json.loads(r["snapshot"]), r["changed_at"])
+                   for r in db.execute("SELECT item_id,revision,snapshot,changed_at FROM history")]
+    new_history = {(r["item_id"], r["revision"], json.dumps(r["snapshot"], sort_keys=True, ensure_ascii=False), r["changed_at"])
+                   for r in snapshot.get("history", [])}
+    if any((i, rev, json.dumps(s, sort_keys=True, ensure_ascii=False), t) not in new_history
+           for i, rev, s, t in old_history):
+        return False
+    old_links = {(r["source"], r["relation"], r["target"]) for r in current["links"]}
+    new_links = {(r["source"], r["relation"], r["target"]) for r in snapshot["links"]}
+    return old_links <= new_links
+
+
+def synchronize_snapshot(db, path=SNAPSHOT):
+    """Use a Git-updated snapshot when it differs from this database's last export."""
+    if not path.exists():
+        write_snapshot(db)
+        return False
+    digest = file_hash(path)
+    recorded = db.execute("SELECT value FROM settings WHERE key='snapshot_hash'").fetchone()
+    if recorded and recorded["value"] == digest:
+        return False
+    snapshot = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(snapshot.get("items"), list) or not isinstance(snapshot.get("links"), list):
+        raise ValueError("workspace.json 형식이 올바르지 않습니다.")
+    current = all_data(db)
+    same_items = {x["id"]: x for x in current["items"]} == {x["id"]: x for x in snapshot["items"]}
+    same_links = {(x["source"], x["relation"], x["target"]) for x in current["links"]} == \
+                 {(x["source"], x["relation"], x["target"]) for x in snapshot["links"]}
+    db_history = [(r["item_id"], r["revision"], json.loads(r["snapshot"]), r["changed_at"])
+                  for r in db.execute("SELECT item_id,revision,snapshot,changed_at FROM history ORDER BY id")]
+    json_history = [(r["item_id"], r["revision"], r["snapshot"], r["changed_at"])
+                    for r in snapshot.get("history", [])]
+    same_history = db_history == json_history
+    if same_items and same_links and same_history:
+        with db:
+            db.execute("INSERT OR REPLACE INTO settings VALUES ('snapshot_hash',?)", (digest,))
+        return False
+    if not recorded and not snapshot_is_fast_forward(db, snapshot):
+        raise ValueError("SQLite와 workspace.json에 서로 다른 변경이 있습니다. 자동 반영을 중단했습니다.")
+    backup = Path(db.execute("PRAGMA database_list").fetchone()["file"])
+    if backup.name:
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        with sqlite3.connect(backup.with_name(backup.name + ".bak-" + stamp)) as saved_db:
+            db.backup(saved_db)
+    with db:
+        db.execute("DELETE FROM links")
+        db.execute("DELETE FROM history")
+        db.execute("DELETE FROM items")
+        for item in snapshot["items"]:
+            db.execute("INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+                item["id"], item["process"], item["kind"], item["title"], item["body"],
+                item["status"], item["priority"], item["category"],
+                json.dumps(item["metadata"], ensure_ascii=False), item["revision"],
+                item["created_at"], item["updated_at"]))
+        for link in snapshot["links"]:
+            db.execute("INSERT INTO links VALUES (?,?,?)", (link["source"], link["relation"], link["target"]))
+        for record in snapshot.get("history", []):
+            db.execute("INSERT INTO history(item_id,revision,snapshot,changed_at) VALUES (?,?,?,?)", (
+                record["item_id"], record["revision"], json.dumps(record["snapshot"], ensure_ascii=False), record["changed_at"]))
+        db.execute("INSERT OR REPLACE INTO settings VALUES ('snapshot_hash',?)", (digest,))
+    return True
 
 
 def diagnostics(items, links):
@@ -238,13 +322,22 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         path = unquote(urlparse(self.path).path)
         if path == "/api/data":
-            with connect(self.db_path) as db:
-                data = all_data(db)
-                data["diagnostics"] = diagnostics(data["items"], data["links"])
+            try:
+                with connect(self.db_path) as db:
+                    imported = synchronize_snapshot(db)
+                    data = all_data(db)
+                    data["diagnostics"] = diagnostics(data["items"], data["links"])
+                    data["snapshot_imported"] = imported
+            except (ValueError, KeyError, sqlite3.IntegrityError) as exc:
+                return self.send_json({"error": str(exc)}, 409)
             return self.send_json(data)
         if path == "/api/export.json":
-            with connect(self.db_path) as db:
-                data = all_data(db)
+            try:
+                with connect(self.db_path) as db:
+                    synchronize_snapshot(db)
+                    data = all_data(db)
+            except (ValueError, KeyError, sqlite3.IntegrityError) as exc:
+                return self.send_json({"error": str(exc)}, 409)
             body = json.dumps(data, ensure_ascii=False, indent=2).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -254,9 +347,13 @@ class Handler(BaseHTTPRequestHandler):
             return self.wfile.write(body)
         if path.startswith("/api/history/"):
             ident = path.removeprefix("/api/history/")
-            with connect(self.db_path) as db:
-                records = [{**dict(r), "snapshot": json.loads(r["snapshot"])} for r in
-                           db.execute("SELECT revision,snapshot,changed_at FROM history WHERE item_id=? ORDER BY revision DESC", (ident,))]
+            try:
+                with connect(self.db_path) as db:
+                    synchronize_snapshot(db)
+                    records = [{**dict(r), "snapshot": json.loads(r["snapshot"])} for r in
+                               db.execute("SELECT revision,snapshot,changed_at FROM history WHERE item_id=? ORDER BY revision DESC", (ident,))]
+            except (ValueError, KeyError, sqlite3.IntegrityError) as exc:
+                return self.send_json({"error": str(exc)}, 409)
             return self.send_json(records)
         if path == "/":
             path = "/index.html"
@@ -285,6 +382,7 @@ class Handler(BaseHTTPRequestHandler):
             path = unquote(urlparse(self.path).path)
             data = self.input() if method != "DELETE" else {}
             with connect(self.db_path) as db:
+                synchronize_snapshot(db)
                 if path == "/api/items" and method == "POST":
                     validate_item(data)
                     ident = create_id(db, data["process"], data["kind"])

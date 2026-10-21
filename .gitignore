@@ -1,4 +1,5 @@
 alm/data/alm.sqlite3
 alm/data/alm.sqlite3-*
+alm/data/alm.sqlite3.bak-*
 alm/__pycache__/
 /hw/foc_driver_dev/foc_driver_dev-backups

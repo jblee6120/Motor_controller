@@ -31,6 +31,7 @@ SYS.2 요구사항은 TBD, 미결정 항목 또는 기술 실현 가능성 평�
 - 편집 내용은 `alm/data/alm.sqlite3`에 즉시 저장됩니다.
 - 같은 내용과 항목 변경 이력은 `alm/data/workspace.json`에 자동으로 기록됩니다. 이 JSON 파일은 Git으로 버전 관리할 수 있습니다.
 - SQLite 파일은 Git에서 제외합니다. 다른 컴퓨터에서 실행하면 `workspace.json`으로 데이터베이스를 다시 만듭니다.
+- Git에서 `workspace.json`이 바뀌면 다음 화면 새로고침 또는 저장 요청 때 SQLite에 반영합니다. 반영 전 SQLite 백업은 `alm/data/alm.sqlite3.bak-*`로 남깁니다. 양쪽에 서로 다른 미반영 변경이 있으면 자동 반영을 멈추고 오류를 표시합니다.
 - 상단 `JSON 내보내기`로 수동 백업도 받을 수 있습니다.
 
 기존 YAML·CSV와 GUI 데이터를 동시에 편집하면 내용이 갈라집니다. GUI를 쓰기 시작한 뒤에는 `workspace.json`을 관리 기준으로 삼고, 원본 파일은 초기 자료로 보존하세요. 기존 `validate_requirements.py`는 원본 YAML·CSV만 검사하며 GUI의 최신 데이터에는 적용되지 않습니다. GUI의 `점검` 화면을 사용하세요.

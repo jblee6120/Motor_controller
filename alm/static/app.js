@@ -29,7 +29,7 @@ const stageGuide = {
 const pretty = v => Array.isArray(v) ? v.join('\n') : typeof v === 'object' ? JSON.stringify(v, null, 2) : String(v ?? '');
 function notice(msg) { $('#notice').innerHTML = `<div class="notice">${esc(msg)}</div>`; setTimeout(() => { if ($('#notice')) $('#notice').innerHTML = ''; }, 4500); }
 async function api(path, options={}) { const r = await fetch(path, {headers:{'Content-Type':'application/json'}, ...options}); const data = await r.json(); if (!r.ok) throw new Error(data.error || '요청에 실패했습니다.'); return data; }
-async function refresh() { state.data = await api('/api/data'); render(); }
+async function refresh() { state.data = await api('/api/data'); render(); if(state.data.snapshot_imported) notice('Git에서 변경된 workspace.json을 화면에 반영했습니다.'); }
 function select(view, process='') { state.view=view; state.process=process; state.selected=''; state.query=''; state.kind=''; state.status=''; render(); }
 function openItem(id) { state.selected=id; state.view='detail'; render(); }
 function renderNav() {
